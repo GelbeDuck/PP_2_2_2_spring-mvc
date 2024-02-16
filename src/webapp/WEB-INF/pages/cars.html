@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Машины</title>
+    <style>table {
+        border: thick double #32a1ce;
+    }
+
+    a:link {
+        color: green;
+        background-color: transparent;
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: pink;
+        background-color: transparent;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: blue;
+        background-color: yellow;
+        text-decoration: underline;
+    }
+
+    a:active {
+        color: orange;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+    td {border-style: solid; border-color: lightblue}
+    </style>
+</head>
+<body>
+<div>
+    <h1>Машины</h1>
+    <a href="/cars">Cars | </a>
+    <a href="/cars?count=1">Count=1 | </a>
+    <a href="/cars?count=2">Count=2 | </a>
+    <a href="/cars?count=3">Count=3 | </a>
+    <a href="/cars?count=4">Count=4 | </a>
+    <a href="/cars?count=5">Count=5 | </a>
+    <a href="/cars?count=6">Count=6 (max 5 объектов)</a>
+    <hr>
+    <table>
+        <tr>
+            <th>Model</th>
+            <th>Engine</th>
+            <th>Year</th>
+        </tr>
+        <tr th:each="car : ${cars}">
+            <td th:text="${car.getModel()}">Model</td>
+            <td th:text="${car.getEngine()}">Engine</td>
+            <td th:text="${car.getYear()}">Year</td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>
